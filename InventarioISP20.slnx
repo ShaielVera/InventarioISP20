@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/Elementos de la solución/">
+    <File Path=".github/copilot-instructions.md" />
+  </Folder>
+  <Project Path="AppMovil/AppMovil.csproj" Id="43fdb5aa-bfc8-4163-a6ff-c252abc83e1b" />
+  <Project Path="Desktop/Desktop.csproj" />
+  <Project Path="WebApp/WebApp.Client/WebApp.Client.csproj" Id="58f29072-5619-4b1d-a1bc-b1fd8be8368f" />
+  <Project Path="WebApp/WebApp/WebApp.csproj" Id="13122699-1e3d-41c7-959e-cc1bf95a554b" />
+</Solution>
