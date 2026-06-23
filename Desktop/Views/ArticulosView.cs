@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Consola.Class;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,12 @@ namespace Desktop.Views
         public ArticulosViews()
         {
             InitializeComponent();
+        }
+
+        private void BtnAgregarAlumno_Click(object sender, EventArgs e)
+        {
+            Alumno alumno1 = new Alumno("Shaiel", "Vera");
+            ListAlumnos.Items.Add(alumno1);
         }
     }
 }

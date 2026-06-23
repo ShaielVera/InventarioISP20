@@ -32,5 +32,11 @@ namespace Desktop.Views
             categoriasView.MdiParent = this;
             categoriasView.Show();
         }
+
+        private void SubMenuClientes_Click(object sender, EventArgs e)
+        {
+            ClientesView clientesview = new();
+            clientesview.ShowDialog();
+        }
     }
 }

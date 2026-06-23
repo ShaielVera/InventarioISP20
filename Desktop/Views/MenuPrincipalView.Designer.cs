@@ -35,6 +35,7 @@
             SubMenuCategorias = new FontAwesome.Sharp.IconMenuItem();
             iconMenuItem2 = new FontAwesome.Sharp.IconMenuItem();
             SubMenuSalirDelSistema = new FontAwesome.Sharp.IconMenuItem();
+            SubMenuClientes = new FontAwesome.Sharp.IconMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -66,7 +67,7 @@
             // 
             // iconMenuItem1
             // 
-            iconMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { SubMenuArticulos, SubMenuCategorias });
+            iconMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { SubMenuArticulos, SubMenuCategorias, SubMenuClientes });
             iconMenuItem1.IconChar = FontAwesome.Sharp.IconChar.House;
             iconMenuItem1.IconColor = Color.Black;
             iconMenuItem1.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -114,6 +115,16 @@
             SubMenuSalirDelSistema.Text = "Salir del Sistema";
             SubMenuSalirDelSistema.Click += SubMenuSalirDelSistema_Click;
             // 
+            // SubMenuClientes
+            // 
+            SubMenuClientes.IconChar = FontAwesome.Sharp.IconChar.Users;
+            SubMenuClientes.IconColor = Color.Black;
+            SubMenuClientes.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            SubMenuClientes.Name = "SubMenuClientes";
+            SubMenuClientes.Size = new Size(180, 22);
+            SubMenuClientes.Text = "Clientes";
+            SubMenuClientes.Click += SubMenuClientes_Click;
+            // 
             // MenuPrincipalView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -140,5 +151,6 @@
         private FontAwesome.Sharp.IconMenuItem iconMenuItem2;
         private FontAwesome.Sharp.IconMenuItem SubMenuSalirDelSistema;
         private FontAwesome.Sharp.IconMenuItem SubMenuCategorias;
+        private FontAwesome.Sharp.IconMenuItem SubMenuClientes;
     }
 }
