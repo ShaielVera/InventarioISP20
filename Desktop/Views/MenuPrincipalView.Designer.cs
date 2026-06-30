@@ -33,9 +33,11 @@
             iconMenuItem1 = new FontAwesome.Sharp.IconMenuItem();
             SubMenuArticulos = new FontAwesome.Sharp.IconMenuItem();
             SubMenuCategorias = new FontAwesome.Sharp.IconMenuItem();
+            SubMenuClientesSupabase = new FontAwesome.Sharp.IconMenuItem();
+            SubMenuVehiculos = new FontAwesome.Sharp.IconMenuItem();
+            SubMenuClientes = new FontAwesome.Sharp.IconMenuItem();
             iconMenuItem2 = new FontAwesome.Sharp.IconMenuItem();
             SubMenuSalirDelSistema = new FontAwesome.Sharp.IconMenuItem();
-            SubMenuClientes = new FontAwesome.Sharp.IconMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -67,7 +69,7 @@
             // 
             // iconMenuItem1
             // 
-            iconMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { SubMenuArticulos, SubMenuCategorias, SubMenuClientes });
+            iconMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { SubMenuArticulos, SubMenuCategorias, SubMenuClientesSupabase, SubMenuVehiculos, SubMenuClientes });
             iconMenuItem1.IconChar = FontAwesome.Sharp.IconChar.House;
             iconMenuItem1.IconColor = Color.Black;
             iconMenuItem1.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -81,7 +83,7 @@
             SubMenuArticulos.IconColor = Color.Black;
             SubMenuArticulos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             SubMenuArticulos.Name = "SubMenuArticulos";
-            SubMenuArticulos.Size = new Size(180, 22);
+            SubMenuArticulos.Size = new Size(192, 22);
             SubMenuArticulos.Text = "Articulos";
             SubMenuArticulos.Click += SubMenuArticulos_Click;
             // 
@@ -91,9 +93,39 @@
             SubMenuCategorias.IconColor = Color.Black;
             SubMenuCategorias.IconFont = FontAwesome.Sharp.IconFont.Auto;
             SubMenuCategorias.Name = "SubMenuCategorias";
-            SubMenuCategorias.Size = new Size(180, 22);
+            SubMenuCategorias.Size = new Size(192, 22);
             SubMenuCategorias.Text = "Categorías";
             SubMenuCategorias.Click += SubMenuCategorias_Click;
+            // 
+            // SubMenuClientesSupabase
+            // 
+            SubMenuClientesSupabase.IconChar = FontAwesome.Sharp.IconChar.Users;
+            SubMenuClientesSupabase.IconColor = Color.Black;
+            SubMenuClientesSupabase.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            SubMenuClientesSupabase.Name = "SubMenuClientesSupabase";
+            SubMenuClientesSupabase.Size = new Size(192, 22);
+            SubMenuClientesSupabase.Text = "Clientes con Supabase";
+            SubMenuClientesSupabase.Click += SubMenuClientesSupabase_Click;
+            // 
+            // SubMenuVehiculos
+            // 
+            SubMenuVehiculos.IconChar = FontAwesome.Sharp.IconChar.Users;
+            SubMenuVehiculos.IconColor = Color.Black;
+            SubMenuVehiculos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            SubMenuVehiculos.Name = "SubMenuVehiculos";
+            SubMenuVehiculos.Size = new Size(192, 22);
+            SubMenuVehiculos.Text = "Vehiculos";
+            SubMenuVehiculos.Click += SubMenuVehiculos_Click;
+            // 
+            // SubMenuClientes
+            // 
+            SubMenuClientes.IconChar = FontAwesome.Sharp.IconChar.Users;
+            SubMenuClientes.IconColor = Color.Black;
+            SubMenuClientes.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            SubMenuClientes.Name = "SubMenuClientes";
+            SubMenuClientes.Size = new Size(192, 22);
+            SubMenuClientes.Text = "Clientes";
+            SubMenuClientes.Click += SubMenuClientes_Click;
             // 
             // iconMenuItem2
             // 
@@ -114,16 +146,6 @@
             SubMenuSalirDelSistema.Size = new Size(159, 22);
             SubMenuSalirDelSistema.Text = "Salir del Sistema";
             SubMenuSalirDelSistema.Click += SubMenuSalirDelSistema_Click;
-            // 
-            // SubMenuClientes
-            // 
-            SubMenuClientes.IconChar = FontAwesome.Sharp.IconChar.Users;
-            SubMenuClientes.IconColor = Color.Black;
-            SubMenuClientes.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            SubMenuClientes.Name = "SubMenuClientes";
-            SubMenuClientes.Size = new Size(180, 22);
-            SubMenuClientes.Text = "Clientes";
-            SubMenuClientes.Click += SubMenuClientes_Click;
             // 
             // MenuPrincipalView
             // 
@@ -152,5 +174,7 @@
         private FontAwesome.Sharp.IconMenuItem SubMenuSalirDelSistema;
         private FontAwesome.Sharp.IconMenuItem SubMenuCategorias;
         private FontAwesome.Sharp.IconMenuItem SubMenuClientes;
+        private FontAwesome.Sharp.IconMenuItem SubMenuClientesSupabase;
+        private FontAwesome.Sharp.IconMenuItem SubMenuVehiculos;
     }
 }

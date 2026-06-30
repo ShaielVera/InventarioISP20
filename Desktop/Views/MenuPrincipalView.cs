@@ -38,5 +38,17 @@ namespace Desktop.Views
             ClientesView clientesview = new();
             clientesview.ShowDialog();
         }
+
+        private void SubMenuClientesSupabase_Click(object sender, EventArgs e)
+        {
+            ClientesSupabaseView clientesSupabaseView = new();
+            clientesSupabaseView.ShowDialog();
+        }
+
+        private void SubMenuVehiculos_Click(object sender, EventArgs e)
+        {
+            VehiculosView vehiculosView = new();
+            vehiculosView.ShowDialog();
+        }
     }
 }

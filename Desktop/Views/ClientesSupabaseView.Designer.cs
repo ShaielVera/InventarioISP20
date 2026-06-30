@@ -1,6 +1,6 @@
 ﻿namespace Desktop.Views
 {
-    partial class ClientesView
+    partial class ClientesSupabaseView
     {
         /// <summary>
         /// Required designer variable.
@@ -31,6 +31,7 @@
             label1 = new Label();
             tabControl1 = new TabControl();
             tpLista = new TabPage();
+            btnEliminar = new FontAwesome.Sharp.IconButton();
             btnModificar = new FontAwesome.Sharp.IconButton();
             btnNuevo = new FontAwesome.Sharp.IconButton();
             btnBuscar = new FontAwesome.Sharp.IconButton();
@@ -48,7 +49,6 @@
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
-            btnEliminar = new FontAwesome.Sharp.IconButton();
             tabControl1.SuspendLayout();
             tpLista.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridCLientes).BeginInit();
@@ -61,9 +61,9 @@
             label1.Font = new Font("Monotype Corsiva", 20.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label1.Location = new Point(3, 3);
             label1.Name = "label1";
-            label1.Size = new Size(98, 33);
+            label1.Size = new Size(353, 33);
             label1.TabIndex = 0;
-            label1.Text = "Clientes";
+            label1.Text = "Clientes con el paquete Supabase";
             // 
             // tabControl1
             // 
@@ -91,6 +91,19 @@
             tpLista.TabIndex = 0;
             tpLista.Text = "Lista";
             tpLista.UseVisualStyleBackColor = true;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.IconChar = FontAwesome.Sharp.IconChar.None;
+            btnEliminar.IconColor = Color.Black;
+            btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnEliminar.Location = new Point(660, 164);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(102, 27);
+            btnEliminar.TabIndex = 6;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnModificar
             // 
@@ -278,27 +291,14 @@
             label3.TabIndex = 0;
             label3.Text = "Nombre :";
             // 
-            // btnEliminar
-            // 
-            btnEliminar.IconChar = FontAwesome.Sharp.IconChar.None;
-            btnEliminar.IconColor = Color.Black;
-            btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnEliminar.Location = new Point(660, 164);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(102, 27);
-            btnEliminar.TabIndex = 6;
-            btnEliminar.Text = "Eliminar";
-            btnEliminar.UseVisualStyleBackColor = true;
-            btnEliminar.Click += btnEliminar_Click;
-            // 
-            // ClientesView
+            // ClientesSupabaseView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(tabControl1);
             Controls.Add(label1);
-            Name = "ClientesView";
+            Name = "ClientesSupabaseView";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Clientes";
             tabControl1.ResumeLayout(false);

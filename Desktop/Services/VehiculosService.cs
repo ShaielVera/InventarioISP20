@@ -11,14 +11,14 @@ using DotNetEnv;
 
 namespace Desktop.Services
 {
-    internal class ClientesService
+    internal class VehiculosService
     {
 
         HttpClient httpClient;
-        string urlApi = "https://tdiafxytfpcirxwdgawh.supabase.co/rest/v1/clientes";
+        string urlApi = "https://tdiafxytfpcirxwdgawh.supabase.co/rest/v1/vehiculos";
         JsonSerializerOptions options;
 
-        public ClientesService()
+        public VehiculosService()
         {
             httpClient = SettingHttpClient();
             options = SettingJsonSerializer();
@@ -46,7 +46,7 @@ namespace Desktop.Services
             };
         }
 
-        public async Task<List<Cliente>?> GetAllAsync()
+        public async Task<List<Vehiculos>?> GetAllAsync()
         {
             try
             {
@@ -54,82 +54,83 @@ namespace Desktop.Services
                 if (response.IsSuccessStatusCode)
                 {
                     var json = await response.Content.ReadAsStringAsync();
-                    var clientes = System.Text.Json.JsonSerializer.Deserialize<List<Cliente>>(json);
-                    return clientes;
+                    var vehiculos = System.Text.Json.JsonSerializer.Deserialize<List<Vehiculos>>(json);
+                    return vehiculos;
                 }
                 else
                 {
-                    MessageBox.Show("Error al obtener los clientes: " + response.ReasonPhrase);
+                    MessageBox.Show("Error al obtener los vehículos: " + response.ReasonPhrase);
                     return null;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al obtener los clientes: " + ex.Message);
+                MessageBox.Show("Error al obtener los vehículos: " + ex.Message);
                 return null;
 
             }
 
         }
 
-        public async Task<List<Cliente>?> GetAllWithFilterAsync(string filter)
+        public async Task<List<Vehiculos>?> GetAllWithFilterAsync(string filter)
         {
             try
             {
-                string flitroSupabase = $"?or=(first_name.ilike.*{filter}*, last_name.ilike.*{filter}*,dni.ilike.*{filter}*,address.ilike.*{filter}*)";
+                string flitroSupabase = $"?or=(patent.ilike.*{filter}*, vehicle.ilike.*{filter}*, brand.ilike.*{filter}*, model.ilike.*{filter}*, year.ilike.*{filter}*)";
                 var response = await httpClient.GetAsync(flitroSupabase);
                 if (response.IsSuccessStatusCode)
                 {
                     var json = await response.Content.ReadAsStringAsync();
-                    var clientes = System.Text.Json.JsonSerializer.Deserialize<List<Cliente>>(json);
-                    return clientes;
+                    var vehiculos = System.Text.Json.JsonSerializer.Deserialize<List<Vehiculos>>(json);
+                    return vehiculos;
                 }
                 else
                 {
-                    MessageBox.Show("Error al obtener los clientes: " + response.ReasonPhrase);
+                    MessageBox.Show("Error al obtener los vehículos: " + response.ReasonPhrase);
                     return null;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al obtener los clientes: " + ex.Message);
+                MessageBox.Show("Error al obtener los vehículos: " + ex.Message);
                 return null;
             }
         }
 
-        public async Task<bool> AddClienteAsync(Cliente cliente)
+        public async Task<bool> AddVehicleAsync(Vehiculos vehiculo)
         {
             try
             {
-                var options = new JsonSerializerOptions();
-            var json = JsonSerializer.Serialize(cliente, options);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await httpClient.PostAsync("", content);
+                var json = JsonSerializer.Serialize(vehiculo, options);
+                MessageBox.Show(json);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = await httpClient.PostAsync("", content);
                 if (response.IsSuccessStatusCode)
                 {
                     return true;
                 }
                 else
                 {
-                    MessageBox.Show("Error al crear el cliente: " + response.ReasonPhrase);
+                    var detalle = await response.Content.ReadAsStringAsync();
+                    MessageBox.Show(detalle);
                     return false;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al crear el cliente desde la Api: " + ex.Message);
+                MessageBox.Show("Error al crear el vehículo desde la Api: " + ex.Message);
                 return false;
             }
         }
 
-        public async Task<bool> UpdateClienteAsync(Cliente cliente)
+        public async Task<bool> UpdateVehicleAsync(Vehiculos vehiculo)
         {
             try
             {
                 var options = new JsonSerializerOptions();
-                var json = JsonSerializer.Serialize(cliente, options);
+                var json = JsonSerializer.Serialize(vehiculo, options);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
-                string urlSelectedId = $"?id=eq.{cliente.id}";
+                string urlSelectedId = $"?id=eq.{vehiculo.id}";
                 var response = await httpClient.PutAsync(urlSelectedId, content);
                 if (response.IsSuccessStatusCode)
                 {
@@ -137,18 +138,18 @@ namespace Desktop.Services
                 }
                 else
                 {
-                    MessageBox.Show("Error al actualizar el cliente: " + response.ReasonPhrase);
+                    MessageBox.Show("Error al actualizar el vehículo: " + response.ReasonPhrase);
                     return false;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al actualizar el cliente desde la Api: " + ex.Message);
+                MessageBox.Show("Error al actualizar el vehículo desde la Api: " + ex.Message);
                 return false;
             }
         }
 
-        public async Task<bool> DeleteClienteAsync(int id)
+        public async Task<bool> DeleteVehicleAsync(int id)
         {
             try
             {
@@ -160,13 +161,13 @@ namespace Desktop.Services
                 }
                 else
                 {
-                    MessageBox.Show("Error al eliminar el cliente: " + response.ReasonPhrase);
+                    MessageBox.Show("Error al eliminar el vehículo: " + response.ReasonPhrase);
                     return false;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al eliminar el cliente desde la Api: " + ex.Message);
+                MessageBox.Show("Error al eliminar el vehículo desde la Api: " + ex.Message);
                 return false;
             }
         }

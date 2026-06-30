@@ -1,6 +1,6 @@
 ﻿namespace Desktop.Views
 {
-    partial class ClientesView
+    partial class VehiculosView
     {
         /// <summary>
         /// Required designer variable.
@@ -31,27 +31,29 @@
             label1 = new Label();
             tabControl1 = new TabControl();
             tpLista = new TabPage();
+            btnEliminar = new FontAwesome.Sharp.IconButton();
             btnModificar = new FontAwesome.Sharp.IconButton();
             btnNuevo = new FontAwesome.Sharp.IconButton();
             btnBuscar = new FontAwesome.Sharp.IconButton();
             tbBusqueda = new TextBox();
             label2 = new Label();
-            dataGridCLientes = new DataGridView();
+            dataGridVehiculos = new DataGridView();
             tpAgregarEditar = new TabPage();
             btnCancelar = new FontAwesome.Sharp.IconButton();
             btnGuardar = new FontAwesome.Sharp.IconButton();
-            tbDireccion = new TextBox();
-            tbDocumento = new TextBox();
-            tbApellido = new TextBox();
-            tbNombre = new TextBox();
+            tbPatent = new TextBox();
+            tbVehicle = new TextBox();
+            tbBrand = new TextBox();
+            tbModel = new TextBox();
+            tbYear = new TextBox();
             label6 = new Label();
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
-            btnEliminar = new FontAwesome.Sharp.IconButton();
+            label7 = new Label();
             tabControl1.SuspendLayout();
             tpLista.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridCLientes).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridVehiculos).BeginInit();
             tpAgregarEditar.SuspendLayout();
             SuspendLayout();
             // 
@@ -61,9 +63,9 @@
             label1.Font = new Font("Monotype Corsiva", 20.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label1.Location = new Point(3, 3);
             label1.Name = "label1";
-            label1.Size = new Size(98, 33);
+            label1.Size = new Size(115, 33);
             label1.TabIndex = 0;
-            label1.Text = "Clientes";
+            label1.Text = "Vehículos";
             // 
             // tabControl1
             // 
@@ -83,7 +85,7 @@
             tpLista.Controls.Add(btnBuscar);
             tpLista.Controls.Add(tbBusqueda);
             tpLista.Controls.Add(label2);
-            tpLista.Controls.Add(dataGridCLientes);
+            tpLista.Controls.Add(dataGridVehiculos);
             tpLista.Location = new Point(4, 24);
             tpLista.Name = "tpLista";
             tpLista.Padding = new Padding(3);
@@ -91,6 +93,19 @@
             tpLista.TabIndex = 0;
             tpLista.Text = "Lista";
             tpLista.UseVisualStyleBackColor = true;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.IconChar = FontAwesome.Sharp.IconChar.None;
+            btnEliminar.IconColor = Color.Black;
+            btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnEliminar.Location = new Point(660, 164);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(102, 27);
+            btnEliminar.TabIndex = 6;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnModificar
             // 
@@ -149,25 +164,27 @@
             label2.TabIndex = 1;
             label2.Text = "Buscar :";
             // 
-            // dataGridCLientes
+            // dataGridVehiculos
             // 
-            dataGridCLientes.AllowUserToAddRows = false;
-            dataGridCLientes.AllowUserToDeleteRows = false;
-            dataGridCLientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridCLientes.Location = new Point(6, 81);
-            dataGridCLientes.Name = "dataGridCLientes";
-            dataGridCLientes.ReadOnly = true;
-            dataGridCLientes.Size = new Size(645, 284);
-            dataGridCLientes.TabIndex = 0;
+            dataGridVehiculos.AllowUserToAddRows = false;
+            dataGridVehiculos.AllowUserToDeleteRows = false;
+            dataGridVehiculos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridVehiculos.Location = new Point(6, 81);
+            dataGridVehiculos.Name = "dataGridVehiculos";
+            dataGridVehiculos.ReadOnly = true;
+            dataGridVehiculos.Size = new Size(645, 284);
+            dataGridVehiculos.TabIndex = 0;
             // 
             // tpAgregarEditar
             // 
+            tpAgregarEditar.Controls.Add(label7);
             tpAgregarEditar.Controls.Add(btnCancelar);
             tpAgregarEditar.Controls.Add(btnGuardar);
-            tpAgregarEditar.Controls.Add(tbDireccion);
-            tpAgregarEditar.Controls.Add(tbDocumento);
-            tpAgregarEditar.Controls.Add(tbApellido);
-            tpAgregarEditar.Controls.Add(tbNombre);
+            tpAgregarEditar.Controls.Add(tbPatent);
+            tpAgregarEditar.Controls.Add(tbVehicle);
+            tpAgregarEditar.Controls.Add(tbBrand);
+            tpAgregarEditar.Controls.Add(tbModel);
+            tpAgregarEditar.Controls.Add(tbYear);
             tpAgregarEditar.Controls.Add(label6);
             tpAgregarEditar.Controls.Add(label5);
             tpAgregarEditar.Controls.Add(label4);
@@ -187,7 +204,7 @@
             btnCancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnCancelar.IconSize = 20;
             btnCancelar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCancelar.Location = new Point(667, 120);
+            btnCancelar.Location = new Point(663, 70);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(94, 32);
             btnCancelar.TabIndex = 9;
@@ -202,7 +219,7 @@
             btnGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnGuardar.IconSize = 23;
             btnGuardar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnGuardar.Location = new Point(667, 60);
+            btnGuardar.Location = new Point(663, 10);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(94, 32);
             btnGuardar.TabIndex = 8;
@@ -210,101 +227,105 @@
             btnGuardar.UseVisualStyleBackColor = true;
             btnGuardar.Click += btnGuardar_Click;
             // 
-            // tbDireccion
+            // tbPatent
             // 
-            tbDireccion.Location = new Point(126, 284);
-            tbDireccion.Name = "tbDireccion";
-            tbDireccion.Size = new Size(504, 23);
-            tbDireccion.TabIndex = 7;
+            tbPatent.Location = new Point(126, 52);
+            tbPatent.Name = "tbPatent";
+            tbPatent.Size = new Size(504, 23);
+            tbPatent.TabIndex = 4;
             // 
-            // tbDocumento
+            // tbVehicle
             // 
-            tbDocumento.Location = new Point(126, 213);
-            tbDocumento.Name = "tbDocumento";
-            tbDocumento.Size = new Size(504, 23);
-            tbDocumento.TabIndex = 6;
+            tbVehicle.Location = new Point(126, 118);
+            tbVehicle.Name = "tbVehicle";
+            tbVehicle.Size = new Size(504, 23);
+            tbVehicle.TabIndex = 5;
             // 
-            // tbApellido
+            // tbBrand
             // 
-            tbApellido.Location = new Point(126, 142);
-            tbApellido.Name = "tbApellido";
-            tbApellido.Size = new Size(504, 23);
-            tbApellido.TabIndex = 5;
+            tbBrand.Location = new Point(126, 184);
+            tbBrand.Name = "tbBrand";
+            tbBrand.Size = new Size(504, 23);
+            tbBrand.TabIndex = 5;
             // 
-            // tbNombre
+            // tbModel
             // 
-            tbNombre.Location = new Point(126, 71);
-            tbNombre.Name = "tbNombre";
-            tbNombre.Size = new Size(504, 23);
-            tbNombre.TabIndex = 4;
+            tbModel.Location = new Point(126, 250);
+            tbModel.Name = "tbModel";
+            tbModel.Size = new Size(504, 23);
+            tbModel.TabIndex = 6;
+            // 
+            // tbYear
+            // 
+            tbYear.Location = new Point(126, 316);
+            tbYear.Name = "tbYear";
+            tbYear.Size = new Size(504, 23);
+            tbYear.TabIndex = 7;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 11.25F);
-            label6.Location = new Point(17, 285);
+            label6.Location = new Point(17, 251);
             label6.Name = "label6";
-            label6.Size = new Size(79, 20);
+            label6.Size = new Size(68, 20);
             label6.TabIndex = 3;
-            label6.Text = "Dirección :";
+            label6.Text = "Modelo :";
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 11.25F);
-            label5.Location = new Point(17, 214);
+            label5.Location = new Point(17, 185);
             label5.Name = "label5";
-            label5.Size = new Size(94, 20);
+            label5.Size = new Size(57, 20);
             label5.TabIndex = 2;
-            label5.Text = "Documento :";
+            label5.Text = "Marca :";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 11.25F);
-            label4.Location = new Point(17, 143);
+            label4.Location = new Point(17, 119);
             label4.Name = "label4";
-            label4.Size = new Size(73, 20);
+            label4.Size = new Size(72, 20);
             label4.TabIndex = 1;
-            label4.Text = "Apellido :";
+            label4.Text = "Vehiculo :";
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(17, 72);
+            label3.Location = new Point(17, 53);
             label3.Name = "label3";
-            label3.Size = new Size(71, 20);
+            label3.Size = new Size(65, 20);
             label3.TabIndex = 0;
-            label3.Text = "Nombre :";
+            label3.Text = "Patente :";
             // 
-            // btnEliminar
+            // label7
             // 
-            btnEliminar.IconChar = FontAwesome.Sharp.IconChar.None;
-            btnEliminar.IconColor = Color.Black;
-            btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnEliminar.Location = new Point(660, 164);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(102, 27);
-            btnEliminar.TabIndex = 6;
-            btnEliminar.Text = "Eliminar";
-            btnEliminar.UseVisualStyleBackColor = true;
-            btnEliminar.Click += btnEliminar_Click;
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 11.25F);
+            label7.Location = new Point(17, 317);
+            label7.Name = "label7";
+            label7.Size = new Size(43, 20);
+            label7.TabIndex = 10;
+            label7.Text = "Año :";
             // 
-            // ClientesView
+            // VehiculosView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(tabControl1);
             Controls.Add(label1);
-            Name = "ClientesView";
+            Name = "VehiculosView";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Clientes";
+            Text = "Vehículos";
             tabControl1.ResumeLayout(false);
             tpLista.ResumeLayout(false);
             tpLista.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridCLientes).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridVehiculos).EndInit();
             tpAgregarEditar.ResumeLayout(false);
             tpAgregarEditar.PerformLayout();
             ResumeLayout(false);
@@ -317,7 +338,7 @@
         private TabControl tabControl1;
         private TabPage tpLista;
         private TabPage tpAgregarEditar;
-        private DataGridView dataGridCLientes;
+        private DataGridView dataGridVehiculos;
         private FontAwesome.Sharp.IconButton btnBuscar;
         private TextBox tbBusqueda;
         private Label label2;
@@ -326,13 +347,15 @@
         private Label label4;
         private Label label3;
         private FontAwesome.Sharp.IconButton btnGuardar;
-        private TextBox tbDireccion;
-        private TextBox tbDocumento;
-        private TextBox tbApellido;
-        private TextBox tbNombre;
+        private TextBox tbPatent;
+        private TextBox tbVehicle;
+        private TextBox tbBrand;
+        private TextBox tbModel;
+        private TextBox tbYear;
         private FontAwesome.Sharp.IconButton btnCancelar;
         private FontAwesome.Sharp.IconButton btnModificar;
         private FontAwesome.Sharp.IconButton btnNuevo;
         private FontAwesome.Sharp.IconButton btnEliminar;
+        private Label label7;
     }
 }

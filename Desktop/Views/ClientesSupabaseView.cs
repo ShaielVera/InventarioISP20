@@ -12,14 +12,14 @@ using System.Windows.Forms;
 
 namespace Desktop.Views
 {
-    public partial class ClientesView : Form
+    public partial class ClientesSupabaseView : Form
     {
-        private ClientesService clientesService = new ClientesService();
+        private ClientesSupabaseService clientesService = new ClientesSupabaseService();
         Cliente clienteModificado;
 
 
 
-        public ClientesView()
+        public ClientesSupabaseView()
         {
             InitializeComponent();
             LoadClientes();
@@ -148,14 +148,12 @@ namespace Desktop.Views
                         MessageBox.Show("Error al eliminar el cliente");
                     }
                 }
-            }
+                else
+                {
+                    MessageBox.Show("Seleccione un cliente para eliminar");
+                }
 
-            else
-            {
-                MessageBox.Show("Seleccione un cliente para eliminar");
             }
         }
-
     }
-        
 }
