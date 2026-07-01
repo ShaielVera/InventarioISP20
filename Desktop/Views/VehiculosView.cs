@@ -23,6 +23,31 @@ namespace Desktop.Views
         {
             InitializeComponent();
             LoadVehiculos();
+            SettingTabsTextBox();
+        }
+
+        private void SendTab(KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void tbPatent_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //cuando presionamos enter disparamos la tecla tab 
+            SendTab(e);
+        }
+
+        private void SettingTabsTextBox()
+        {
+            //cuando presionamos enter disparamos metodo sendtab para que se comporte como tabulador pasando por parametro el KeyPressEventArgs 
+            tbVehicle.KeyPress += (sender, e) => SendTab(e);
+            tbBrand.KeyPress += (sender, e) => SendTab(e);
+            tbModel.KeyPress += (sender, e) => SendTab(e);
+            tbYear.KeyPress += (sender, e) => SendTab(e);
         }
 
         public async void LoadVehiculos()
@@ -159,6 +184,12 @@ namespace Desktop.Views
             }
         }
 
+        private void tbBusqueda_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbBusqueda.Text))
+            {
+                btnBuscar.PerformClick();
+            }
+        }
     }
-        
 }

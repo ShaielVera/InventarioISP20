@@ -54,7 +54,7 @@ namespace Desktop.Services
                 if (response.IsSuccessStatusCode)
                 {
                     var json = await response.Content.ReadAsStringAsync();
-                    var vehiculos = System.Text.Json.JsonSerializer.Deserialize<List<Vehiculos>>(json);
+                    var vehiculos = JsonSerializer.Deserialize<List<Vehiculos>>(json);
                     return vehiculos;
                 }
                 else
@@ -101,10 +101,9 @@ namespace Desktop.Services
         {
             try
             {
-                var json = JsonSerializer.Serialize(vehiculo, options);
-                MessageBox.Show(json);
-                var content = new StringContent(json, Encoding.UTF8, "application/json");
-                var response = await httpClient.PostAsync("", content);
+            var json = JsonSerializer.Serialize(vehiculo, options);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await httpClient.PostAsync("", content);
                 if (response.IsSuccessStatusCode)
                 {
                     return true;
@@ -112,7 +111,6 @@ namespace Desktop.Services
                 else
                 {
                     var detalle = await response.Content.ReadAsStringAsync();
-                    MessageBox.Show(detalle);
                     return false;
                 }
             }

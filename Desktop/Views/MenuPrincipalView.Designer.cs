@@ -69,12 +69,12 @@
             // 
             // iconMenuItem1
             // 
-            iconMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { SubMenuArticulos, SubMenuCategorias, SubMenuClientesSupabase, SubMenuVehiculos, SubMenuClientes });
+            iconMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { SubMenuArticulos, SubMenuCategorias, SubMenuClientes, SubMenuClientesSupabase, SubMenuVehiculos });
             iconMenuItem1.IconChar = FontAwesome.Sharp.IconChar.House;
             iconMenuItem1.IconColor = Color.Black;
             iconMenuItem1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconMenuItem1.Name = "iconMenuItem1";
-            iconMenuItem1.Size = new Size(81, 20);
+            iconMenuItem1.Size = new Size(122, 20);
             iconMenuItem1.Text = "Principal";
             // 
             // SubMenuArticulos
@@ -99,7 +99,7 @@
             // 
             // SubMenuClientesSupabase
             // 
-            SubMenuClientesSupabase.IconChar = FontAwesome.Sharp.IconChar.Users;
+            SubMenuClientesSupabase.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
             SubMenuClientesSupabase.IconColor = Color.Black;
             SubMenuClientesSupabase.IconFont = FontAwesome.Sharp.IconFont.Auto;
             SubMenuClientesSupabase.Name = "SubMenuClientesSupabase";
@@ -109,7 +109,7 @@
             // 
             // SubMenuVehiculos
             // 
-            SubMenuVehiculos.IconChar = FontAwesome.Sharp.IconChar.Users;
+            SubMenuVehiculos.IconChar = FontAwesome.Sharp.IconChar.Car;
             SubMenuVehiculos.IconColor = Color.Black;
             SubMenuVehiculos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             SubMenuVehiculos.Name = "SubMenuVehiculos";

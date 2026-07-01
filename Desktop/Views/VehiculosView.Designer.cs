@@ -39,6 +39,7 @@
             label2 = new Label();
             dataGridVehiculos = new DataGridView();
             tpAgregarEditar = new TabPage();
+            label7 = new Label();
             btnCancelar = new FontAwesome.Sharp.IconButton();
             btnGuardar = new FontAwesome.Sharp.IconButton();
             tbPatent = new TextBox();
@@ -50,7 +51,6 @@
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
-            label7 = new Label();
             tabControl1.SuspendLayout();
             tpLista.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridVehiculos).BeginInit();
@@ -152,6 +152,7 @@
             tbBusqueda.Name = "tbBusqueda";
             tbBusqueda.Size = new Size(532, 23);
             tbBusqueda.TabIndex = 2;
+            tbBusqueda.TextChanged += tbBusqueda_TextChanged;
             tbBusqueda.KeyPress += tbBusqueda_KeyPress;
             // 
             // label2
@@ -172,6 +173,7 @@
             dataGridVehiculos.Location = new Point(6, 81);
             dataGridVehiculos.Name = "dataGridVehiculos";
             dataGridVehiculos.ReadOnly = true;
+            dataGridVehiculos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridVehiculos.Size = new Size(645, 284);
             dataGridVehiculos.TabIndex = 0;
             // 
@@ -197,6 +199,16 @@
             tpAgregarEditar.Text = "Agregar/Editar";
             tpAgregarEditar.UseVisualStyleBackColor = true;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 11.25F);
+            label7.Location = new Point(17, 317);
+            label7.Name = "label7";
+            label7.Size = new Size(43, 20);
+            label7.TabIndex = 10;
+            label7.Text = "Año :";
+            // 
             // btnCancelar
             // 
             btnCancelar.IconChar = FontAwesome.Sharp.IconChar.Cancel;
@@ -207,7 +219,7 @@
             btnCancelar.Location = new Point(663, 70);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(94, 32);
-            btnCancelar.TabIndex = 9;
+            btnCancelar.TabIndex = 6;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             btnCancelar.Click += btnCancelar_Click;
@@ -222,7 +234,7 @@
             btnGuardar.Location = new Point(663, 10);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(94, 32);
-            btnGuardar.TabIndex = 8;
+            btnGuardar.TabIndex = 5;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = true;
             btnGuardar.Click += btnGuardar_Click;
@@ -232,35 +244,36 @@
             tbPatent.Location = new Point(126, 52);
             tbPatent.Name = "tbPatent";
             tbPatent.Size = new Size(504, 23);
-            tbPatent.TabIndex = 4;
+            tbPatent.TabIndex = 0;
+            tbPatent.KeyPress += tbPatent_KeyPress;
             // 
             // tbVehicle
             // 
             tbVehicle.Location = new Point(126, 118);
             tbVehicle.Name = "tbVehicle";
             tbVehicle.Size = new Size(504, 23);
-            tbVehicle.TabIndex = 5;
+            tbVehicle.TabIndex = 1;
             // 
             // tbBrand
             // 
             tbBrand.Location = new Point(126, 184);
             tbBrand.Name = "tbBrand";
             tbBrand.Size = new Size(504, 23);
-            tbBrand.TabIndex = 5;
+            tbBrand.TabIndex = 2;
             // 
             // tbModel
             // 
             tbModel.Location = new Point(126, 250);
             tbModel.Name = "tbModel";
             tbModel.Size = new Size(504, 23);
-            tbModel.TabIndex = 6;
+            tbModel.TabIndex = 3;
             // 
             // tbYear
             // 
             tbYear.Location = new Point(126, 316);
             tbYear.Name = "tbYear";
             tbYear.Size = new Size(504, 23);
-            tbYear.TabIndex = 7;
+            tbYear.TabIndex = 4;
             // 
             // label6
             // 
@@ -301,16 +314,6 @@
             label3.Size = new Size(65, 20);
             label3.TabIndex = 0;
             label3.Text = "Patente :";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 11.25F);
-            label7.Location = new Point(17, 317);
-            label7.Name = "label7";
-            label7.Size = new Size(43, 20);
-            label7.TabIndex = 10;
-            label7.Text = "Año :";
             // 
             // VehiculosView
             // 
